@@ -143,30 +143,30 @@
 
 Docker commit
 ```
-$ docker run -it ubuntu:16.04 bash
+$ docker run -it ubuntu:20.04 bash
 # apt-get update
-# apt-get install -y git
-# git version
+# apt-get install -y net-tools
+# ifconfig
 ```
 
 ```
 $ docker ps
 $ docker diff <CONTAINER_ID>
-$ docker commit <CONTAINER_ID> ubunut:git
-$ docker run -it ubuntu:git bash
-# git
+$ docker commit <CONTAINER_ID> ubunut:net
+$ docker run -it ubuntu:net bash
+# ifconfig
 ```
 
 Dockerfile
 ```
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 RUN apt-get update
-RUN apt-get install -y git
+RUN apt-get install -y net-tools
 ```
 
 ```
-$ docker build -t ubuntu:git02 .
-$ docker run -it ubuntu:git02 bash
-# git version
+$ docker build -t ubuntu:net02 .
+$ docker run -it ubuntu:net02 bash
+# ifconfig
 ```
