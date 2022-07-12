@@ -127,9 +127,9 @@ docker run -d -p 8000:80 \
 ```
 
 ### Container Volume Mount
-'''
+```
   $ docker run -p 8002:80 -v ~/Desktop/htdocs:/usr/local/apache2/htdocs/ httpd
-'''
+```
 
 
 ```
