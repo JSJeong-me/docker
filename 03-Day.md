@@ -76,47 +76,7 @@ docker-compose logs -f
 docker-compose down
 ```
 
-## Exam 1. 방명록 만들기
 
-
-
-
-
-
-
-guide-02/guestbook/docker-compose.yml
-
-**frontend**
-
-이미지
-- subicura/guestbook-frontend:latest
-
-환경변수
-- PORT # ex) 8000
-- GUESTBOOK_API_ADDR # ex) backend:8000
-
-**backend**
-
-이미지
-- subicura/guestbook-backend:latest
-
-환경변수
-- PORT # ex) 8000
-- GUESTBOOK_DB_ADDR # ex) mongodb:27017
-
-**mongodb**
-
-이미지
-- mongo:4
-
-기본포트
-- 27017
-
-## 정리
-
-```
-docker-compose down
-docker system prune -a
-```
-
+### Python 실습
+### https://docs.docker.com/language/python/build-images/
 
