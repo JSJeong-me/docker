@@ -21,6 +21,9 @@
 
 **ubuntu 컨테이너 생성**
 
+
+
+
 ```
 docker run --rm -it ubuntu:20.04 /bin/sh
 ```
@@ -127,9 +130,35 @@ docker run -d -p 8000:80 \
 ```
 
 ### Container Volume Mount
+
+
+  볼륨 활용방법
+  
+  볼륨의 활용방법은 크게 두 가지로 나눌 수 있습니다.
+  1. 호스트와 볼륨을 공유
+  2. 볼륨 컨테이너 활용
+  
+  호스트와 볼륨을 공유
+  호스트와 볼륨을 공유하는 방식의 경우 호스트의 공유 디렉토리와 컨테이너에서의 공유 디렉토리 경로를 지정하는 옵션을 입력함으로서 가능합니다.
+
+  
 ```
   $ docker run -p 8002:80 -v ~/Desktop/htdocs:/usr/local/apache2/htdocs/ httpd
 ```
+
+  -v  옵션이 새로 추가되었는데요, ':' 를 구분자로 왼쪽이 호스트, 오른쪽이 컨테이너의 디렉토리를 의미
+  이 두개 경로를 공유함으로써 httpd container는 종료되더라도 데이터를 호스트  ~/Desktop/htdocs 볼륨을 저장
+
+
+    볼륨 컨테이너 활용
+
+    볼륨을 사용하는 또 다른 방법으로는 볼륨컨테이너 를 활용하는 것인데요, 컨테이너를 생성할 때 --volumes-from 옵션을 설정하면 -v or --volume 옵션을 적용한 컨테이너의 볼륨 디렉토리를 공유
+
+```
+  $ docker run -i -t --name volume_container --volumes-from volume_override ubuntu:14.04
+```
+
+  위 예시는 volume_override 이름으로 만들어 진 컨테이너에서 사용하고 있는 볼륨을 volume_container 이름의 컨테이너에서 다시 재 활용 하는 방식
 
 
 ```
