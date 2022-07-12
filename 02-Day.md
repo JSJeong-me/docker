@@ -170,3 +170,19 @@ $ docker build -t ubuntu:net02 .
 $ docker run -it ubuntu:net02 bash
 # ifconfig
 ```
+
+
+
+Registry
+
+    $ docker login
+
+
+Repository Creation in Docker Hub
+
+
+
+    $ docker tag ubuntu:net02 drjsjeong/NAME:<tag>
+
+    $ docker push [OPTIONS] NAME[:TAG]
+
