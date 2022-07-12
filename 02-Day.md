@@ -159,7 +159,8 @@ $ docker run -it ubuntu:net bash
 
 ###
 
-![Uploading 제목 없음.png…]()
+![제목 없음](https://user-images.githubusercontent.com/54794815/178501825-207e4f0e-385d-4849-9163-952469e2739b.png)
+
 
 
 ###
