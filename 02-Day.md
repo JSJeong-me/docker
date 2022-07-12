@@ -23,26 +23,7 @@
 
     - docker0 브리지는 각 veth 인터페이스와 바인딩돼 호스트의 eth0 인터페이스와 이어주는 역할
     
-    
-    
-### docker network 확인
-
-    $ docker network ls
-    
-    
-### docker network 상세 정보 확인
-
-    $ docker network inspect bridge
-
-    $ docker network inspect app-network
-
-
-
-### client & server process구성확인
-
-    $ docke version
-
-    $ ps -aef
+###
 
 
 ### Network Create - Wordpress 실습
@@ -94,6 +75,32 @@
     wordpress
 
 
+
+
+    
+### docker network 확인
+
+    $ docker network ls
+    
+    
+### docker network 상세 정보 확인
+
+    $ docker network inspect bridge
+
+    $ docker network inspect app-network
+
+
+
+### client & server process구성확인
+
+    $ docke version
+
+    $ ps -aef
+
+
+
+
+###
 
 
 
