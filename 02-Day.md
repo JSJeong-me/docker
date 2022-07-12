@@ -157,6 +157,17 @@ $ docker run -it ubuntu:net bash
 # ifconfig
 ```
 
+###
+
+![Uploading 제목 없음.png…]()
+
+
+###
+
+
+
+
+
 Dockerfile
 ```
 FROM ubuntu:20.04
