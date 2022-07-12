@@ -1,5 +1,5 @@
 
-도커 네트워크 구조
+### 도커 네트워크 구조
 
 ![다운로드](https://user-images.githubusercontent.com/54794815/178488864-5d80e34a-3d08-40f1-a3e5-409f32d24fd3.png)
 
@@ -24,10 +24,54 @@
     - docker0 브리지는 각 veth 인터페이스와 바인딩돼 호스트의 eth0 인터페이스와 이어주는 역할
 
 
+### client & server process구성확인
+
+    $ docke version
+
+    $ ps -aef
+
+
+### Network Create - Wordpress 실습
+
+1. MySQL
+
+    $ docker pull mysql:5.7
+    $ docker run -d -p 3306:3306 \
+      -e MYSQL_ALLOW_EMPTY_PASSWORD=true \
+      --name mysql \
+      mysql:5.7
+
+2. DATABASE 생성
+
+    $ docker exec -it mysql mysql
+
+    sql> create database wp CHARACTER SET utf8;
+    sql> grant all privileges on wp.* to wp@'%' identified by 'wp';
+    sql> flush privileges;
+    sql> show DATABASES;
+    sql> quit
+    
+3. network create(네트워크 생성)
+
+    $ docker network create app-network
+
+    $ docker network connect app-network mysql
+
+    $ docker run -d -p 8080:80 \
+    --network=app-network \
+    -e WORDPRESS_DB_HOST=mysql \
+    -e WORDPRESS_DB_NAME=wp \
+    -e WORDPRESS_DB_USER=wp \
+    -e WORDPRESS_DB_PASSWORD=wp \
+    wordpress
 
 
 
 
+
+
+    
+    
 
 
 
