@@ -46,9 +46,13 @@
     $ docker exec -it mysql mysql
 
     sql> create database wp CHARACTER SET utf8;
+    
     sql> grant all privileges on wp.* to wp@'%' identified by 'wp';
+    
     sql> flush privileges;
+    
     sql> show DATABASES;
+    
     sql> quit
     
 3. network create(네트워크 생성)
