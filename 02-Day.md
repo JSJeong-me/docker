@@ -169,7 +169,7 @@ $ docker run -it ubuntu:net bash
 
 
 
-Dockerfile
+### Dockerfile
 ```
 FROM ubuntu:20.04
 
@@ -190,11 +190,6 @@ $ docker run -it ubuntu:net02 bash
 
 
     $ docker login
-
-
-Repository Creation in Docker Hub
-
-
 
     $ docker tag ubuntu:net02 drjsjeong/NAME:<tag>
 
