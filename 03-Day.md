@@ -21,30 +21,13 @@
 
 ### 도커 컴포즈 실습
 
-`guide-02`라는 폴더를 만듭니다.
+`ex-03`라는 폴더를 만듭니다.
 
-**간단한 웹 애플리케이션 생성**
 
-guide-02/docker-workshop-app/docker-compose.yml
-
-```yml
-version: '3'
-services:
-  web:
-    image: subicura/docker-workshop-app:1
-    ports:
-      - "4567:4567"
-```
-
-```
-docker-compose up -d
-```
-
-http://xxxx:4567 접속
 
 **wordpress 생성**
 
-guide-02/wordpress/docker-compose.yml
+ex-03/wordpress/docker-compose.yml
 
 ```yml
 version: '3'
@@ -91,6 +74,12 @@ docker-compose down
 ```
 
 ## Exam 1. 방명록 만들기
+
+
+
+
+
+
 
 guide-02/guestbook/docker-compose.yml
 
