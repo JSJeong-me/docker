@@ -125,6 +125,10 @@
     
     $ docker run -d -p 8888:8888 -p 6006:6006 teamlab/pydata-tensorflow:0.1
 
+
+### Jupyter 노트북 실행 --->    http://localhost:8888/
+
+
 ### tf_test.py
 
     import tensorflow as tf
