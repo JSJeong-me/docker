@@ -184,8 +184,10 @@ $ docker run -it ubuntu:net02 bash
 ```
 
 
+### https://hub.docker.com/ 에서 계정을 생성합니다.
+### 로그인을 하고, 첫 화면의 오른쪽 위에서 Create Repository +를 선택합니다.
+### 이미지 이름과 설명을 입력합니다. my_ubuntu 이미지를 생성합니다.
 
-Registry
 
     $ docker login
 
