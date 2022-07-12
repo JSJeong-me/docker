@@ -36,9 +36,13 @@
 1. MySQL
 
     $ docker pull mysql:5.7
+    
     $ docker run -d -p 3306:3306 \
+    
       -e MYSQL_ALLOW_EMPTY_PASSWORD=true \
+      
       --name mysql \
+      
       mysql:5.7
 
 2. DATABASE 생성
@@ -62,11 +66,17 @@
     $ docker network connect app-network mysql
 
     $ docker run -d -p 8080:80 \
+    
     --network=app-network \
+    
     -e WORDPRESS_DB_HOST=mysql \
+    
     -e WORDPRESS_DB_NAME=wp \
+    
     -e WORDPRESS_DB_USER=wp \
+    
     -e WORDPRESS_DB_PASSWORD=wp \
+    
     wordpress
 
 
