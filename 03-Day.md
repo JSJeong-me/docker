@@ -42,8 +42,6 @@
   mysql 실행 docker-compose.yml 파일
 
 
-  version: "3" # 버전 지정
-
   version: '3'
   services:
     mysql:
@@ -61,7 +59,7 @@
     docker-compose up -d
 ```
 
-### 도커 컴포즈 실습
+### Task 2. Docker Compose 기본 실습
 
 `ex-03`라는 폴더를 만듭니다.
 
@@ -69,9 +67,10 @@
 
 **wordpress 생성**
 
-ex-03/wordpress/docker-compose.yml
+./wordpress/docker-compose.yml
 
 ```yml
+
 version: '3'
 services:
   wordpress:
