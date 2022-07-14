@@ -237,3 +237,16 @@ docker-compose down
 ### Python 실습
 ### https://docs.docker.com/language/python/build-images/
 
+
+    $ sudo apt install python3-pip
+
+    $ pip3 install Flask
+
+    $ pip3 freeze | grep Flask >> requirements.txt
+
+    $ touch app.py
+
+    $ python3 -m flask run
+
+
+
