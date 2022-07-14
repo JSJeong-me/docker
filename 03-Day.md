@@ -234,7 +234,7 @@ docker-compose down
 ```
 
 
-### Python 실습
+### Docker Project 실습
 ### https://docs.docker.com/language/python/build-images/
 
 
