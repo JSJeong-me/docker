@@ -119,6 +119,10 @@
 
 ### tensorflow
 
+    docker run -p 10000:8888 jupyter/scipy-notebook:0fd03d9356de
+    
+    https://jupyter-docker-stacks.readthedocs.io/en/latest/
+
     tensorflow는 python으로 만들어져 python과 관련 패키지를 설치해야 합니다. 이번에 설치하는 이미지는 python과 함께 numpy, scipy, pandas, jupyter, scikit-learn, gensim, BeautifulSoup4, Tensorflow가 설치되어 있습니다. 뭔가 복잡해 보이지만 도커라면 손쉽게 실행
     
     
