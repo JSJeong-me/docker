@@ -63,7 +63,7 @@ docker run -d -e WORDPRESS_DB_PASSWORD=pw \
 --link wordpressdb:mysql -p 80 wordpress
 ```
 
-http://xxxx:0000 접속  $ docker ps 로 확인
+http://127.0.0.1:52841 접속  $ docker ps 로 확인
 
 **컨테이너 목록 확인**
 
