@@ -143,7 +143,7 @@ docker run -d -p 8000:80 \
 
   
 ```
-  $ docker run -p 8002:80 -v ~/Desktop/htdocs:/usr/local/apache2/htdocs/ httpd
+  $ docker run -d -p 8080:80 --name my-nginx-web -v ~/Desktop/htdocs:/usr/share/nginx/html nginx
 ```
 
   -v  옵션이 새로 추가되었는데요, ':' 를 구분자로 왼쪽이 호스트, 오른쪽이 컨테이너의 디렉토리를 의미
