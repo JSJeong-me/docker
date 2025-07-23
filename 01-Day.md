@@ -34,7 +34,7 @@ docker run --rm -it ubuntu:20.04 /bin/sh
 docker run -d -p 4567:4567 subicura/docker-workshop-app:1
 ```
 
-http://xxxx:4567 접속
+http://localhost:4567 접속
 
 **MySQL 생성**
 
