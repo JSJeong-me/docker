@@ -125,6 +125,11 @@
    docker-compose up 명령어를 통해 컨테이너를 생성 및 실행
 
     docker-compose up -d
+
+    CLI 에서 확인 방법
+
+    mysql -h 127.0.0.1 -P 3306 -u wp -p
+    # 비밀번호: wp
 ```
 
 ### Task 2. Docker Compose 기본 실습
