@@ -103,6 +103,12 @@
 | ps | 목록 |
 | logs | 로그보기 |
 
+docker-compose stop : 컨테이너 중지 (삭제 X)
+
+docker-compose rm : 중지된 컨테이너 삭제
+
+docker-compose down : 위 둘을 한 번에 처리
+
 
 ## Task 1. Docker Compose 기본 실습
 
