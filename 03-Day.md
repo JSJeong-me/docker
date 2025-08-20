@@ -248,16 +248,141 @@ docker-compose down
 ### Docker Project 실습
 ### https://docs.docker.com/language/python/build-images/
 
+$ sudo apt install python3-pip
 
-    $ sudo apt install python3-pip
+$ pip3 install Flask
 
-    $ pip3 install Flask
+$ pip3 freeze | grep Flask >> requirements.txt
 
-    $ pip3 freeze | grep Flask >> requirements.txt
+$ touch app.py
 
-    $ touch app.py
+$ python3 -m flask run
 
-    $ python3 -m flask run
+
+**Flask 애플리케이션**을 로컬에서 실행하는 과정을 **Docker Compose** 기반으로 자동화할 수 있습니다.
+아래 예제에서는 **Dockerfile**, **requirements.txt**, **app.py**, 그리고 **docker-compose.yml**을 작성하여 컨테이너 환경에서 Flask 앱을 실행할 수 있게 구성했습니다.
+
+---
+
+## **1. 디렉토리 구조**
+
+```
+flask-app/
+├── app.py
+├── requirements.txt
+├── Dockerfile
+└── docker-compose.yml
+```
+
+---
+
+## **2. requirements.txt**
+
+```txt
+Flask==3.0.3
+```
+
+> `pip3 freeze | grep Flask > requirements.txt` 의 결과를 반영
+
+---
+
+## **3. app.py** *(샘플 Flask 애플리케이션)*
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, Flask running in Docker Compose!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
+
+---
+
+## **4. Dockerfile**
+
+```dockerfile
+# 1. Python 3.11 기반 Ubuntu 20.04 이미지 사용
+FROM python:3.11-slim
+
+# 2. 작업 디렉토리 생성
+WORKDIR /app
+
+# 3. 패키지 복사 및 설치
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 4. Flask 앱 복사
+COPY . .
+
+# 5. 환경 변수 설정
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5000
+
+# 6. Flask 실행 명령
+CMD ["flask", "run"]
+```
+
+---
+
+## **5. docker-compose.yml**
+
+```yaml
+version: '3.9'
+
+services:
+  flask-app:
+    build: .
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+    restart: always
+```
+
+---
+
+## **6. 실행 방법**
+
+### **1) 이미지 빌드 및 컨테이너 실행**
+
+```bash
+docker-compose up --build -d
+```
+
+### **2) 컨테이너 로그 확인**
+
+```bash
+docker-compose logs -f
+```
+
+### **3) Flask 앱 접속**
+
+[http://localhost:5000](http://localhost:5000)
+
+---
+
+## **7. 명령어 비교**
+
+| 기존 명령어                         | Docker Compose 전환 방식               |                           |
+| ------------------------------ | ---------------------------------- | ------------------------- |
+| `sudo apt install python3-pip` | Dockerfile에서 `python:3.11-slim` 사용 |                           |
+| `pip3 install Flask`           | `requirements.txt` + `pip install` |                           |
+| \`pip3 freeze                  | grep Flask\`                       | `requirements.txt`에 버전 명시 |
+| `touch app.py`                 | `app.py` 작성 후 컨테이너에 포함             |                           |
+| `python3 -m flask run`         | `docker-compose up`                |                           |
+
+---
+
+
 
 
 
